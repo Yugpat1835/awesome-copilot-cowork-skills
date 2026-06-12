@@ -1,6 +1,6 @@
 # Awesome Copilot Cowork Skills
 
-> **17 workflow skills plus a 16-persona executive review suite for Microsoft 365 Copilot Cowork.** Drop a folder into OneDrive: no admin, no Copilot Studio, no app package. The same SKILL.md runs verbatim in Claude Code.
+> **15 workflow skills plus a 16-persona executive review suite for Microsoft 365 Copilot Cowork.** Drop a folder into OneDrive: no admin, no Copilot Studio, no app package. The same SKILL.md runs verbatim in Claude Code.
 
 > **Preview status, June 2026.** Cowork is a [Frontier preview](https://adoption.microsoft.com/en-us/copilot/frontier-program/), not generally available. You need a paid M365 Copilot licence plus Frontier programme enrolment, with Anthropic enabled as a subprocessor for your tenant. EU tenants are off by default. The documentation is prerelease, so limits and behaviour may change. GA date and pricing are unknown. This is a community library, not affiliated with or endorsed by Microsoft.
 
@@ -81,11 +81,11 @@ Still stuck, or wondering about licences, the EU, safety, or scheduling? The [FA
 
 ---
 
-## Featured: The Executive Review Board
+## Featured: The Executive Reviewers
 
-The flagship suite. Before you walk a document into a steering committee, seven C-suite personas read it first: CFO, COO, CTO, CMO, CRO, CBO and CISO. A red-team validation pass checks the document's claims before any persona opines, each persona produces a verdict with cited findings and risks, the personas argue where their reviews conflict, and you get a single report plus the interrogation questions you will face in the real meeting.
+Before you walk a document into a steering committee, run it past the executive who will actually interrogate it. Sixteen reviewer personas, each a standalone skill: the C-suite seven (CFO, COO, CTO, CMO, CRO, CBO and CISO) plus a bench of nine (CHRO, General Counsel, product, data, procurement, investor, customer advocate, frontline skeptic and works council representative).
 
-Run the whole board with [`review-board`](skills/executive-review/review-board/), or run any persona standalone (a CFO pass on a business case, a CISO pass on a vendor proposal). The [`red-team-validator`](skills/executive-review/red-team-validator/) also works alone as a pre-send fact and filler check on any document. The board ships with seven C-suite personas and a bench of nine more: CHRO, General Counsel, product, data, procurement, investor, customer advocate, frontline skeptic and works council representative. Any bench persona can be seated on the board by copying one file, and [`review-board/references/persona-template.md`](skills/executive-review/review-board/references/persona-template.md) lets you build your own.
+Every reviewer reads your document through its own mandate and produces the same artifact: a DRAFT review with a verdict, cited findings, risks, and the five interrogation questions you will face in the real meeting. Run one persona standalone (a CFO pass on a business case, a CISO pass on a vendor proposal), or run several in sequence and reconcile the conflicts yourself; the disagreement between two reviews is usually where the real work is.
 
 ---
 
@@ -93,98 +93,93 @@ Run the whole board with [`review-board`](skills/executive-review/review-board/)
 
 Every skill folder contains the `SKILL.md` plus a README with install steps, triggers and a changelog.
 
-**Status, June 2026:** every skill is format-validated against the Agent Skills spec. None has yet run in a production Cowork tenant; the first tenant test is in progress, and per-skill READMEs will carry tested-with-date lines as they pass.
+**Status, June 2026:** every skill is format-validated against the Agent Skills spec. Tenant testing is under way: `meeting-prep-onepager` and `no-delete-guardrail` passed a live Frontier tenant test on 2026-06-11 (see their READMEs); the rest carry "tenant test pending" until they pass, and per-skill READMEs gain tested-with-date lines as they do.
 
 ### Executive Review
 `skills/executive-review/`
 
-| # | Skill | What it produces | Example trigger |
-|---|-------|------------------|-----------------|
-| 1 | [`review-board`](skills/executive-review/review-board/) | Seven-persona executive review report with red-team validation and interrogation questions | "Stress-test this business case before Thursday's steering committee" |
-| 2 | [`red-team-validator`](skills/executive-review/red-team-validator/) | Dated validation memo: claim-by-claim verdict table, filler flags, corrections | "Red-team this report before I send it" |
+**The 16 reviewer personas.** Every reviewer produces the same artifact through its own lens: a DRAFT review .docx with a verdict, cited findings, risks and five interrogation questions. Each runs standalone.
 
-**The 16 reviewer personas.** Every reviewer produces the same artifact through its own lens: a DRAFT review .docx with a verdict, cited findings, risks and five interrogation questions. Each runs standalone, and each can be seated on the full board.
+The C-suite seven: [`cfo-reviewer`](skills/executive-review/cfo-reviewer/) · [`coo-reviewer`](skills/executive-review/coo-reviewer/) · [`cto-reviewer`](skills/executive-review/cto-reviewer/) · [`cmo-reviewer`](skills/executive-review/cmo-reviewer/) · [`cro-reviewer`](skills/executive-review/cro-reviewer/) · [`cbo-reviewer`](skills/executive-review/cbo-reviewer/) · [`ciso-reviewer`](skills/executive-review/ciso-reviewer/)
 
-Board: [`cfo-reviewer`](skills/executive-review/cfo-reviewer/) · [`coo-reviewer`](skills/executive-review/coo-reviewer/) · [`cto-reviewer`](skills/executive-review/cto-reviewer/) · [`cmo-reviewer`](skills/executive-review/cmo-reviewer/) · [`cro-reviewer`](skills/executive-review/cro-reviewer/) · [`cbo-reviewer`](skills/executive-review/cbo-reviewer/) · [`ciso-reviewer`](skills/executive-review/ciso-reviewer/)
-
-Bench: [`chro-reviewer`](skills/executive-review/chro-reviewer/) · [`general-counsel-reviewer`](skills/executive-review/general-counsel-reviewer/) · [`cpo-reviewer`](skills/executive-review/cpo-reviewer/) · [`cdo-reviewer`](skills/executive-review/cdo-reviewer/) · [`procurement-reviewer`](skills/executive-review/procurement-reviewer/) · [`investor-reviewer`](skills/executive-review/investor-reviewer/) · [`customer-advocate-reviewer`](skills/executive-review/customer-advocate-reviewer/) · [`frontline-skeptic-reviewer`](skills/executive-review/frontline-skeptic-reviewer/) · [`works-council-reviewer`](skills/executive-review/works-council-reviewer/)
+The bench: [`chro-reviewer`](skills/executive-review/chro-reviewer/) · [`general-counsel-reviewer`](skills/executive-review/general-counsel-reviewer/) · [`cpo-reviewer`](skills/executive-review/cpo-reviewer/) · [`cdo-reviewer`](skills/executive-review/cdo-reviewer/) · [`procurement-reviewer`](skills/executive-review/procurement-reviewer/) · [`investor-reviewer`](skills/executive-review/investor-reviewer/) · [`customer-advocate-reviewer`](skills/executive-review/customer-advocate-reviewer/) · [`frontline-skeptic-reviewer`](skills/executive-review/frontline-skeptic-reviewer/) · [`works-council-reviewer`](skills/executive-review/works-council-reviewer/)
 
 ### Meetings
 `skills/meetings/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 3 | [`meeting-prep-onepager`](skills/meetings/meeting-prep-onepager/) | One-page Word prep brief for any upcoming meeting | "Prep me for my next meeting" |
-| 4 | [`transcript-to-actions`](skills/meetings/transcript-to-actions/) | Action-items file, confirmed To Do or Planner tasks, DRAFT owner emails | "Turn this transcript into action items and follow-up emails" |
+| 1 | [`meeting-prep-onepager`](skills/meetings/meeting-prep-onepager/) | One-page Word prep brief for any upcoming meeting | "Prep me for my next meeting" |
+| 2 | [`transcript-to-actions`](skills/meetings/transcript-to-actions/) | Action-items file, confirmed To Do or Planner tasks, DRAFT owner emails | "Turn this transcript into action items and follow-up emails" |
 
 ### Project Management
 `skills/project-management/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 5 | [`project-status-tracker`](skills/project-management/project-status-tracker/) | Four living project files plus a weekly status-YYYY-WW.docx draft | "Produce this week's status report for helios-migration" |
+| 3 | [`project-status-tracker`](skills/project-management/project-status-tracker/) | Four living project files plus a weekly status-YYYY-WW.docx draft | "Produce this week's status report for helios-migration" |
 
 ### Daily Briefings
 `skills/daily-briefings/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 6 | [`custom-daily-brief`](skills/daily-briefings/custom-daily-brief/) | Role-tuned morning brief DOCX: emails, calendar, Teams mentions, deadlines | "Run my daily brief" |
-| 7 | [`commitment-catcher`](skills/daily-briefings/commitment-catcher/) | Commitments ledger (made and owed, overdue flagged) plus To Do entries | "What did I promise people in the last 24 hours?" |
+| 4 | [`custom-daily-brief`](skills/daily-briefings/custom-daily-brief/) | Role-tuned morning brief DOCX: emails, calendar, Teams mentions, deadlines | "Run my daily brief" |
+| 5 | [`commitment-catcher`](skills/daily-briefings/commitment-catcher/) | Commitments ledger (made and owed, overdue flagged) plus To Do entries | "What did I promise people in the last 24 hours?" |
 
 ### Email & Inbox
 `skills/email-inbox/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 8 | [`inbox-triage`](skills/email-inbox/inbox-triage/) | Dated triage report, five-bucket inbox sort, labelled reply drafts | "Triage my inbox and draft what needs a reply" |
+| 6 | [`inbox-triage`](skills/email-inbox/inbox-triage/) | Dated triage report, five-bucket inbox sort, labelled reply drafts | "Triage my inbox and draft what needs a reply" |
 
 ### Writing & Communication
 `skills/writing-communication/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 9 | [`write-like-me`](skills/writing-communication/write-like-me/) | Voice profile file plus email and docx drafts in your voice | "Draft this email in my voice" |
-| 10 | [`branded-deck-builder`](skills/writing-communication/branded-deck-builder/) | Brand-compliant .pptx deck on your template, plus outline and compliance report | "Build a 12-slide deck on our company template" |
+| 7 | [`write-like-me`](skills/writing-communication/write-like-me/) | Voice profile file plus email and docx drafts in your voice | "Draft this email in my voice" |
+| 8 | [`branded-deck-builder`](skills/writing-communication/branded-deck-builder/) | Brand-compliant .pptx deck on your template, plus outline and compliance report | "Build a 12-slide deck on our company template" |
 
 ### Reporting & Analysis
 `skills/reporting-analysis/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 11 | [`report-attachment-analyzer`](skills/reporting-analysis/report-attachment-analyzer/) | Trend spreadsheet plus DRAFT delta summary from recurring emailed reports | "Update the trends for the weekly sales report" |
-| 12 | [`news-monitor-digest`](skills/reporting-analysis/news-monitor-digest/) | Dated 5-8 item news digest as Word doc or email draft | "Sweep my news sources and build today's digest" |
+| 9 | [`report-attachment-analyzer`](skills/reporting-analysis/report-attachment-analyzer/) | Trend spreadsheet plus DRAFT delta summary from recurring emailed reports | "Update the trends for the weekly sales report" |
+| 10 | [`news-monitor-digest`](skills/reporting-analysis/news-monitor-digest/) | Dated 5-8 item news digest as Word doc or email draft | "Sweep my news sources and build today's digest" |
 
-> **Data boundary note for admins:** `news-monitor-digest` reaches outside the tenant by design. It fetches external web content through the Deep Research built-in on every run, and its safety rules treat all fetched web content as untrusted data. The only other skill that can touch the open web is `red-team-validator`, and only when the user explicitly authorises a web check. No other skill in this library reads anything outside the tenant.
+> **Data boundary note for admins:** `news-monitor-digest` reaches outside the tenant by design. It fetches external web content through the Deep Research built-in on every run, and its safety rules treat all fetched web content as untrusted data. No other skill in this library reads anything outside the tenant.
 
 ### IT Operations
 `skills/it-operations/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 13 | [`sharepoint-review-sweeper`](skills/it-operations/sharepoint-review-sweeper/) | Overdue-review spreadsheet plus per-owner reminder email Drafts, never sent | "Which documents in our library are past their review date?" |
+| 11 | [`sharepoint-review-sweeper`](skills/it-operations/sharepoint-review-sweeper/) | Overdue-review spreadsheet plus per-owner reminder email Drafts, never sent | "Which documents in our library are past their review date?" |
 
 ### Dashboards & Microapps
 `skills/dashboards-microapps/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 14 | [`project-dashboard-builder`](skills/dashboards-microapps/project-dashboard-builder/) | Single-file offline HTML dashboard from project tracker files | "Build a dashboard for the website-relaunch project" |
+| 12 | [`project-dashboard-builder`](skills/dashboards-microapps/project-dashboard-builder/) | Single-file offline HTML dashboard from project tracker files | "Build a dashboard for the website-relaunch project" |
 
 ### Sales & BD
 `skills/sales-bd/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 15 | [`estimate-to-sow`](skills/sales-bd/estimate-to-sow/) | DRAFT statement-of-work .docx from your estimate spreadsheet, maths validated first | "Turn estimate-acme-q3.xlsx into a statement of work" |
+| 13 | [`estimate-to-sow`](skills/sales-bd/estimate-to-sow/) | DRAFT statement-of-work .docx from your estimate spreadsheet, maths validated first | "Turn estimate-acme-q3.xlsx into a statement of work" |
 
 ### Meta-Skills
 `skills/meta-skills/`
 
 | # | Skill | What it produces | Example trigger |
 |---|-------|------------------|-----------------|
-| 16 | [`no-delete-guardrail`](skills/meta-skills/no-delete-guardrail/) | Approval gates, versioned files, append-only change journal every conversation | "Clean up my project folder, but ask before removing anything" |
-| 17 | [`skills-backup-keeper`](skills/meta-skills/skills-backup-keeper/) | Dated skills-folder backups with manifest, plus append-only session journal | "Back up my skills folder before I edit anything" |
+| 14 | [`no-delete-guardrail`](skills/meta-skills/no-delete-guardrail/) | Approval gates, versioned files, append-only change journal every conversation | "Clean up my project folder, but ask before removing anything" |
+| 15 | [`skills-backup-keeper`](skills/meta-skills/skills-backup-keeper/) | Dated skills-folder backups with manifest, plus append-only session journal | "Back up my skills folder before I edit anything" |
 
 ---
 
@@ -214,11 +209,11 @@ Microsoft's documentation is explicit that custom skills are not validated by Mi
 - **Email never sends.** Every email-touching skill is written to create Drafts only.
 - **DRAFT until reviewed.** Every skill is written to label generated documents DRAFT until a human reviews them.
 - **Community-reported frictions designed in.** Community reports describe Planner and To Do writes failing silently and outputs landing in session folders. So every skill that touches Planner or To Do specifies a file fallback (for example `actions.md`) and reports which path was taken, and every skill names explicit OneDrive save paths and reports where each artifact was saved.
-- **Status declared.** Every skill README carries a tested-in-Cowork status line. Current status for every skill: format-validated against the Agent Skills spec, tenant test pending.
+- **Status declared.** Every skill README carries a tested-in-Cowork status line: tested-with-date once it passes a live tenant test (two have, as of 2026-06-11), "tenant test pending" until then. Never trust a skill that claims testing it cannot date.
 
 One thing to be clear about: these are instructions the model is asked to follow, not platform-enforced controls. Cowork has no sandbox that prevents a skill, or injected content inside something a skill reads, from attempting a send or a delete. Treat them as defence in depth, not a guarantee.
 
-**For the sceptics:** a skill is plain-language instructions that the model reads, which makes any third-party skill a potential prompt-injection vector. Treat skills like browser extensions: read the `SKILL.md` before dropping it into OneDrive. Install takes a minute; reading the flagship board suite before you install takes about fifteen, and those fifteen are worth it. Everything in this repo is plain Markdown with no encoded content, written to be audited in one sitting.
+**For the sceptics:** a skill is plain-language instructions that the model reads, which makes any third-party skill a potential prompt-injection vector. Treat skills like browser extensions: read the `SKILL.md` before dropping it into OneDrive. Install takes a minute; reading the largest skill here before you install takes about ten, and those ten are worth it. Everything in this repo is plain Markdown with no encoded content, written to be audited in one sitting.
 
 **How to vet a third-party skill before installing:**
 

@@ -73,14 +73,14 @@ Any template, extraction rule set, or format spec the WORKFLOW cites lives here 
 
 ## The smallest PR: contribute a persona
 
-The `review-board` skill convenes reviewer personas from single Markdown files, and the board is meant to grow beyond the seven C-suite roles it ships with. Contributing one is the lowest-friction PR this repository accepts:
+Reviewer personas are single-folder skills in `skills/executive-review/`, and the bench is meant to grow beyond the sixteen roles that ship today. Contributing one is the lowest-friction PR this repository accepts:
 
-1. Copy `skills/executive-review/review-board/references/persona-template.md`.
-2. Fill in all six sections. KNOWN BLIND SPOTS is mandatory and must be written against the persona; the red-team stage depends on it.
-3. Save it as `skills/executive-review/review-board/references/persona-<role>.md` (kebab-case role).
-4. Add one row to the persona list in the review-board README's "Extend the board" section if you are adding a commonly requested role.
+1. Copy an existing bench reviewer folder (for example `skills/executive-review/procurement-reviewer/`).
+2. Rewrite the six persona sections: mandate, what I probe first, red flags, what convinces me, vocabulary and tone, known blind spots. KNOWN BLIND SPOTS is mandatory and must be written honestly against the persona.
+3. Rename the folder and the frontmatter `name` to `<role>-reviewer` (kebab-case), and update the skill README.
+4. Add the skill to the bench list in the top-level README.
 
-Persona rules: role archetypes only, never a real named individual or anything derived from one person's profile; no organisation-specific facts (those belong in a user's private `org-profile.md`); the standard prose rules above apply. The original wishlist (CHRO, General Counsel, Chief Product Officer, Head of Procurement, investor, customer advocate, frontline skeptic, works council representative) has shipped: those roles, plus a Chief Data Officer, now exist as nine bench skills in `skills/executive-review/`. New contributions should cover roles not yet shipped, for example a Chief Sustainability Officer, a CIO, internal audit, a regulator lens, or an industry-specific buyer, and follow the same template. A contributed persona may ship either as a bench skill folder of its own or as a single persona file PR; maintainers will route it to whichever form fits.
+Persona rules: role archetypes only, never a real named individual or anything derived from one person's profile; no organisation-specific facts (those belong in a user's private `org-profile.md`); the standard prose rules above apply. The original wishlist (CHRO, General Counsel, Chief Product Officer, Head of Procurement, investor, customer advocate, frontline skeptic, works council representative) has shipped: those roles, plus a Chief Data Officer, now exist as nine bench skills. New contributions should cover roles not yet shipped, for example a Chief Sustainability Officer, a CIO, internal audit, a regulator lens, or an industry-specific buyer.
 
 ## PR checklist
 
